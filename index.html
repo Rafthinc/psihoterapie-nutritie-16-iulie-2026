@@ -124,11 +124,39 @@
     .fit-card.dark { background:var(--ink); color:white; }
     .fit-card.dark p { color:rgba(255,255,255,.72); }
 
+    .about { background: white; border-block: 1px solid var(--line); }
+    .about-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; align-items:center; }
+    .about-monogram {
+      min-height:420px; border-radius:28px 140px 28px 28px; background:var(--ink);
+      color:white; padding:42px; position:relative; overflow:hidden; display:flex;
+      flex-direction:column; justify-content:flex-end; box-shadow:var(--shadow);
+    }
+    .about-monogram::before {
+      content:"AR"; position:absolute; right:-12px; top:-48px; font-family:"Newsreader",Georgia,serif;
+      font-size:15rem; line-height:1; color:rgba(120,214,198,.13); letter-spacing:-.09em;
+    }
+    .about-monogram small { color:var(--mint); text-transform:uppercase; letter-spacing:.13em; font-weight:700; }
+    .about-monogram strong { font-family:"Newsreader",Georgia,serif; font-size:2.2rem; line-height:1.08; margin-top:12px; font-weight:600; }
+    .about-copy h2 { margin-bottom:24px; }
+    .about-copy > p { color:var(--ink-soft); margin:0 0 28px; }
+    .credentials { display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .credentials li { padding:14px 18px; border:1px solid var(--line); border-radius:14px; background:var(--paper); font-weight:600; }
+
     .contact { padding-top: 36px; }
-    .contact-panel { background:var(--sun); border-radius:30px; padding:64px; display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:end; }
+    .contact-panel { background:var(--sun); border-radius:30px; padding:64px; display:grid; grid-template-columns:.9fr 1.1fr; gap:54px; align-items:center; }
     .contact-panel h2 { max-width:650px; }
     .contact-panel p { margin:20px 0 0; max-width:650px; color:#5b3828; }
-    .contact-panel .button { justify-self:end; background:var(--ink); color:white; }
+    .contact-list { display:grid; gap:12px; }
+    .contact-item {
+      display:grid; grid-template-columns:44px 1fr; gap:14px; align-items:center; padding:16px 18px;
+      border-radius:16px; text-decoration:none; color:var(--ink); background:rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.65); transition:transform .2s, background .2s;
+    }
+    .contact-item:hover { transform:translateX(4px); background:white; }
+    .contact-icon { width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:var(--ink); color:white; }
+    .contact-item small { display:block; color:#6c4938; text-transform:uppercase; letter-spacing:.1em; font-size:.7rem; font-weight:700; }
+    .contact-item strong { display:block; margin-top:2px; font-size:1rem; overflow-wrap:anywhere; }
+    .contact-note { margin-top:16px !important; font-size:.86rem; }
     footer { padding:36px 0 44px; }
     .footer-row { display:flex; justify-content:space-between; align-items:center; gap:20px; color:var(--ink-soft); font-size:.86rem; }
     .footer-row p { margin:0; }
@@ -141,7 +169,7 @@
       .nav-links.open { display:flex; }
       .menu { display:block; }
       .hero { padding-top:60px; min-height:auto; }
-      .hero-grid, .section-head, .method-grid, .contact-panel { grid-template-columns:1fr; gap:40px; }
+      .hero-grid, .section-head, .method-grid, .about-grid, .contact-panel { grid-template-columns:1fr; gap:40px; }
       .hero-visual { max-width:620px; border-radius:28px 150px 28px 28px; }
       .service-grid, .fit-grid { grid-template-columns:1fr; }
       .format-grid { grid-template-columns:1fr; }
@@ -180,6 +208,7 @@
       <div class="nav-links" id="navLinks">
         <a href="#servicii">Servicii</a>
         <a href="#abordare">Abordare</a>
+        <a href="#despre">Despre mine</a>
         <a href="#format">Cum lucrăm</a>
         <a class="nav-cta" href="#contact">Discuție inițială</a>
       </div>
@@ -298,6 +327,26 @@
       </div>
     </section>
 
+    <section class="about" id="despre">
+      <div class="wrap about-grid">
+        <div class="about-monogram reveal" aria-label="Adrian-Francois Roșu">
+          <small>Psihologie · Psihoterapie · Nutriție</small>
+          <strong>Adrian-Francois<br>Roșu</strong>
+        </div>
+        <div class="about-copy reveal">
+          <div class="eyebrow">Despre mine</div>
+          <h2>O abordare profesionistă, integrată.</h2>
+          <p>Îmbin perspectiva psihologică și psihoterapia cognitiv-comportamentală cu sprijinul nutrițional, pentru a construi intervenții clare, aplicabile și adaptate vieții fiecărei persoane.</p>
+          <ul class="credentials">
+            <li>Psiholog</li>
+            <li>Psihoterapeut</li>
+            <li>Specialist în Psihoterapie Cognitiv-Comportamentală</li>
+            <li>Nutriționist</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="contact" id="contact">
       <div class="wrap">
         <div class="contact-panel reveal">
@@ -305,8 +354,22 @@
             <div class="eyebrow">Primul pas</div>
             <h2>Începem cu o conversație.</h2>
             <p>Solicită o primă întâlnire online pentru a discuta ce te preocupă, ce ai nevoie și care ar putea fi direcția potrivită pentru tine.</p>
+            <p class="contact-note">Pentru programări, mă poți contacta direct telefonic sau prin e-mail.</p>
           </div>
-          <a class="button" href="mailto:?subject=Solicitare%20discu%C8%9Bie%20ini%C8%9Bial%C4%83%20-%20Psihoterapie%20%2F%20Nutri%C8%9Bie&body=Bun%C4%83%20ziua%2C%0A%0ADoresc%20s%C4%83%20solicit%20o%20discu%C8%9Bie%20ini%C8%9Bial%C4%83%20online.%0A%0ANume%3A%0AServiciul%20care%20m%C4%83%20intereseaz%C4%83%3A%0AInterval%20orar%20preferat%3A%0A">Solicită o întâlnire <span aria-hidden="true">→</span></a>
+          <div class="contact-list">
+            <a class="contact-item" href="tel:+40723179552">
+              <span class="contact-icon" aria-hidden="true">☎</span>
+              <span><small>Telefon</small><strong>0723 179 552</strong></span>
+            </a>
+            <a class="contact-item" href="mailto:psihoterapiieficiente@gmail.com?subject=Solicitare%20discu%C8%9Bie%20ini%C8%9Bial%C4%83&body=Bun%C4%83%20ziua%2C%0A%0ADoresc%20s%C4%83%20solicit%20o%20discu%C8%9Bie%20ini%C8%9Bial%C4%83.%0A%0ANume%3A%0AServiciul%20care%20m%C4%83%20intereseaz%C4%83%3A%0AInterval%20orar%20preferat%3A%0A">
+              <span class="contact-icon" aria-hidden="true">✉</span>
+              <span><small>E-mail</small><strong>psihoterapiieficiente@gmail.com</strong></span>
+            </a>
+            <a class="contact-item" href="https://www.psihoterapie-nutritie.ro" target="_blank" rel="noopener">
+              <span class="contact-icon" aria-hidden="true">◎</span>
+              <span><small>Website</small><strong>www.psihoterapie-nutritie.ro</strong></span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -314,7 +377,7 @@
 
   <footer>
     <div class="wrap footer-row">
-      <p>© <span id="year"></span> Adrian-Francois Roșu</p>
+      <p>© <span id="year"></span> Adrian-Francois Roșu · 0723 179 552</p>
       <p>Psihoterapie cognitiv-comportamentală & consiliere nutrițională</p>
     </div>
   </footer>
